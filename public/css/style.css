@@ -114,8 +114,12 @@ a {
 }
 
 
-a:hover {
+#footer span:hover {
     color: #ccc;
+}
+
+#footer span {
+    cursor: pointer;
 }
 
 #precos .col-12.col-md-3:nth-of-type(-n+3) {

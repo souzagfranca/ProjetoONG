@@ -245,10 +245,10 @@ function App() {
 
               <div className="col-12 col-md-3 mt-5 mt-sm-0 d-flex flex-column justify-content-center align-items-center">
                 <p className='fw-bold fs-5'>Navegue por aqui</p>
-                <div><a href="/">Sobre nós</a></div>
-                <div><a href="/">Planos</a></div>
-                <div><a href="/">Entrar</a></div>
-                <div><a href="/">Cadastro</a></div>
+                <div><span onClick={scroolSobreNos}>Sobre nós</span></div>
+                <div><span onClick={scroolPlanos}>Planos</span></div>
+                <div><span>Entrar</span></div>
+                <div><span>Cadastro</span></div>
               </div>
 
               <div className="col-12 col-md-3 mt-5 mt-sm-0 d-flex flex-column justify-content-center align-items-center">
