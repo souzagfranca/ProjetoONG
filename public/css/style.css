@@ -14,6 +14,10 @@
     color: #013539 !important;
 }
 
+.text-cinza-claro {
+    color: #EBEBEB;
+}
+
 nav ul li a {
     color: #706E6E !important;
     font-weight: 500 !important;
@@ -50,6 +54,10 @@ h1 {
     background-color: #E0E0E0 !important;
 }
 
+.bg-cinza-escuro1 {
+    background-color: #212121;
+}
+
 .bg-cinza-claro {
     background-color: #EBEBEB !important;
 }
@@ -72,9 +80,59 @@ h1 {
     list-style: none;
 }
 
-@media (max-width: 480px)
-{
- .col-md-6.col-12 h1{
-    font-size: 2.7em;
- }
+nav small {
+    cursor: pointer;
+    font-weight: 500 !important;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.cantoneira {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3em;
+    height: 3em;
+    border: 7px solid #0D5C63;
+    border-bottom: none;
+    border-left: none;
+    z-index: 10;
+    border-radius: 4px;
+    margin-right: -3px;
+    margin-top: -3px;
+}
+
+#precos {
+    background: url('../img/planos-esquerdo.png') left top no-repeat, url('../img/planos-direito.png') right center no-repeat;
+}
+
+#apresentacao {
+    margin-top: -10px;
+}
+
+
+a:hover {
+    color: #ccc;
+}
+
+#precos .col-12.col-md-3:nth-of-type(-n+3) {
+    border-right: 2px solid #0D5C63;
+}
+
+#footer .col-md-3:nth-of-type(-n+3) {
+    border-right: 1px solid #343434;
+    height: 160px;
+}
+
+@media (max-width: 480px) {
+    .col-md-6.col-12 h1 {
+        font-size: 2.7em;
+    }
+
+    #precos .col-12.col-md-3 {
+        border-right: none;
+    }
 }
