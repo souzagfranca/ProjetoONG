@@ -4,18 +4,10 @@ import logo from '/img/logo.png'
 import bannerInicial from '/img/banner.png'
 import pingos from '/img/pingos.png'
 import computador from '/img/computador.png'
-import React, { useRef, useState  } from 'react';
-
-// BOOTSTRAP
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.js';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import '../public/css/style.css'
+import React, { useRef } from 'react';
 
 
 function App() {
-  const setIsActive = useState(false);
-
   const removeNavBar = () => {
     const nav = document.querySelector('.navbar-collapse');
     nav.classList.remove('show');
