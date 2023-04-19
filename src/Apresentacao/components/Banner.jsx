@@ -1,8 +1,5 @@
-
-import { Link } from 'react-router-dom';
-import bannerInicial from '/img/banner.png'
 import React from 'react';
-
+import bannerInicial from '/img/banner.png'
 
 function App() {
 

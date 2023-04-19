@@ -1,17 +1,12 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import computador from '/img/computador.png'
 
 function App() {
-    const sobrenos = useRef(null);
-    const scroolSobreNos = () => {
-        removeNavBar()
-        sobrenos.current.scrollIntoView({ behavior: "smooth" });
-      }
     return (
         <div>
             {/* APRESENTAÇÃO 2 */}
-            <section className='bg-cinza-claro pt-5 pb-5'>
-                <div className="container" ref={sobrenos}>
+            <section className='bg-cinza-claro pt-5 pb-5' id="apresentacao">
+                <div className="container">
                     <div className="row">
                         <div className="col-md-6 m-auto text-start">
                             <h2 className='fw-bold text-verde-escuro1'>Gestão automatizada que te ajuda a gerenciar seu negócio</h2>

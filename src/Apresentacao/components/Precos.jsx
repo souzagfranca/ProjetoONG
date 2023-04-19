@@ -1,11 +1,8 @@
-import React, { useRef } from 'react';
-
+import React from 'react';
 
 function App(props) {
-    const planos = useRef(null);
     return (
-
-        < div className = "col-12 col-md-3" >
+        <div className="col-12 col-md-3" >
             <div className="card mt-5 mt-sm-0">
                 <div className='bg-verde-escuro text-center text-white rounded'>
                     <p className='fs-3 pt-2 pb-2'>mensal</p>
@@ -21,7 +18,7 @@ function App(props) {
                     </div>
                 </div>
             </div>
-            </div >
+        </div>
     )
 }
 export default App

@@ -1,5 +1,5 @@
 //import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useRef } from 'react';
 import NavBar from './components/NavBar'
 import Banner from './components/Banner'
 import Apresentacao from './components/Apresentacao'
@@ -11,12 +11,12 @@ import Footer from './components/Footer'
 function App() {
   return (
     <div>
-      <NavBar></NavBar>
-      <Banner></Banner>
-      <Apresentacao></Apresentacao>
-      <Apresentacao2></Apresentacao2>
-      <Planos></Planos>
-      <Footer></Footer>
+      <NavBar SobreNos="sim" Planos="sim" Contato="sim"/>
+      <Banner/>
+      <Apresentacao/>
+      <Apresentacao2/>
+      <Planos/>
+      <Footer/>
     </div>
   )
 }

@@ -1,32 +1,30 @@
 
 import { Link } from 'react-router-dom';
 import logo from '/img/logo.png'
-import React, { useRef } from 'react';
+import React from 'react';
 
 
-function App() {
+function App(props) {
   const removeNavBar = () => {
     const nav = document.querySelector('.navbar-collapse');
     nav.classList.remove('show');
-
   }
-  const sobrenos = useRef(null);
-  const planos = useRef(null);
-  const contato = useRef(null);
-
-  const scroolPlanos = (e) => {
+  const scroolPlanos = () => {
+    const mainRoot = document.getElementById("precos");
+    mainRoot.scrollIntoView({ behavior: "smooth" });
     removeNavBar()
-    planos.current.scrollIntoView({ behavior: "smooth" });
   }
 
   const scroolSobreNos = () => {
+    const mainRoot = document.getElementById("apresentacao");
+    mainRoot.scrollIntoView({ behavior: "smooth" });
     removeNavBar()
-    sobrenos.current.scrollIntoView({ behavior: "smooth" });
   }
 
   const scroolContatos = () => {
+    const mainRoot = document.getElementById("footer");
+    mainRoot.scrollIntoView({ behavior: "smooth" });
     removeNavBar()
-    contato.current.scrollIntoView({ behavior: "smooth" });
   }
 
   return (
@@ -36,7 +34,9 @@ function App() {
       <section>
         <nav className="bg-cinza-escuro navbar navbar-expand-lg bg-body-tertiary">
           <div className="container pt-3 pb-3">
-            <img src={logo} className="img-responsive" alt="" />
+            <Link to="/">
+              <img src={logo} className="img-responsive" alt="" />
+            </Link>
 
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -46,30 +46,38 @@ function App() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <li className="nav-item px-4">
-                  <small className="nav-link active" onClick={scroolSobreNos} aria-current="page" href="#">SOBRE NÓS</small>
-                </li>
-                <li className="nav-item px-4">
-                  <small className="nav-link" onClick={scroolPlanos} href="#">PLANOS</small>
-                </li>
-                <li className="nav-item px-4">
-                  <small className="nav-link" onClick={scroolContatos} href="#">CONTATO</small>
-                </li>
+                {props.SobreNos ? <li className="nav-item px-4">
+                  <small className="nav-link active" onClick={scroolSobreNos} aria-current="page">SOBRE NÓS</small>
+                </li> : ''}
+
+                {props.Planos ? <li className="nav-item px-4">
+                  <small className="nav-link" onClick={scroolPlanos}>PLANOS</small>
+                  </li> : ''}
+
+                {props.Contato ? <li className="nav-item px-4">
+                  <small className="nav-link" onClick={scroolContatos}>CONTATO</small>
+                  </li> : ''}
 
               </ul>
               <li className="nav-item px-3">
-                <small className="btn btn-outline-info verde-claro pe-4 ps-4 w-100" href="#">ENTRAR</small>
+                <Link to="/login">
+                  <small className="btn btn-outline-info verde-claro pe-4 ps-4 w-100">
+                    ENTRAR
+                  </small>
+                </Link>
               </li>
               <li className="nav-item px-3">
-                <small className="btn verde-escuro text-white mt-sm-0 mt-3 pe-4 ps-4 w-100"
-                  href="#">CADASTRE-SE</small>
+                <Link to="/cadastro">
+                  <small className="btn verde-escuro text-white mt-sm-0 mt-3 pe-4 ps-4 w-100"
+                    href="#">CADASTRE-SE</small>
+                </Link>
               </li>
 
             </div>
           </div>
         </nav>
       </section>
-      
+
     </div>
   )
 }

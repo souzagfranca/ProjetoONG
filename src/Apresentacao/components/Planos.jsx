@@ -1,13 +1,12 @@
-import React, { useRef } from 'react';
+import React from 'react'
 import Precos from './Precos'
 
 
-function App(props) {
-    const planos = useRef(null);
+function App() {
     return (
         <div>
             {/* PLANOS E PREÇOS */}
-            <section className='bg-cinza-escuro pt-5 pb-5' id="precos" ref={planos}>
+            <section className='bg-cinza-escuro pt-5 pb-5' id="precos">
                 <div className="col-md-12 pb-5">
                     <div className="container">
                         <div className="row">
