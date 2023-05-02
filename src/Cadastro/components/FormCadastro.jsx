@@ -1,4 +1,4 @@
-import './cadastro.css';
+import './cadastro.css'
 
 export default function FormCadastro() {
     return (
