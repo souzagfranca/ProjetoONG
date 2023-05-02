@@ -23,7 +23,7 @@ export default function FormCadastro() {
                 <div className="container">
                     <div className="col-md-8 mt-5 mb-5 m-auto">
                         <h2 className='my-3 fw-bold text-verde-escuro fs-1'>Inscreva-se agora !</h2>
-                        <div className="login-box border-5 rounded shadow p-3 mb-5 rounded text-white p-4">
+                        <div id='card-cadastro' className="login-box border-5 rounded shadow p-3 mb-5 rounded text-white p-4">
 
                             <form>
                                 <div className="form-group my-3">
