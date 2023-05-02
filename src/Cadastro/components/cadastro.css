@@ -9,7 +9,7 @@
 
 
 #cadastroForm {
-    background: url('./img/cadastrodesign.png') no-repeat bottom center;
+    background: url('../assets/img/cadastrodesign.png') no-repeat bottom center;
     background-size: contain;
 }
 
