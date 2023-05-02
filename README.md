@@ -1,4 +1,30 @@
 # BlackBox-ERP
+
+Projeto de um ERP para gestão comercial
+
+Passos de instalação do projeto:
+
+Instalar o projeto
+```
+git clone https://github.com/Gabriel-neto/BlackBox-ERP.git
+```
+
+Instale as dependências:
+```
+npm install
+```
+
+Iniciar o vite em ambiente homologação:
+```
+npm run dev
+```
+
+Compilar projeto:
+```
+npm run build
+```
+
+
 Finalização da página de apresentação
 ![screenshot (2)](https://user-images.githubusercontent.com/63604055/232051443-6153537b-0d56-42fd-94a2-8ba9e081e7b9.png)
 
