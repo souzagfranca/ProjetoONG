@@ -7,12 +7,11 @@ import ScreenLogin from './components.jsx/ScreenLogin';
 function App() {
   return (
     <div>
-      <NavBar/>
+      <NavBar SobreNos="sim" Planos="sim" Contato="sim"/>
       <ScreenLogin/>
       <Footer/>
     </div>
   )
-  
 }
 
 export default App

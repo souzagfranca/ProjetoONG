@@ -6,7 +6,7 @@ export default function Fornecedor() {
     const { userName } = useContext(UserContext)
     return (
         <Content>
-            <h1>Lista de fornecedor</h1>
+            <h2>Lista de fornecedor</h2>
         </Content >
     );
 }

@@ -6,7 +6,7 @@ export default function Perfil() {
     const { userName } = useContext(UserContext)
     return (
         <Content>
-            <h1>Perfil de {userName}</h1>
+            <h2>Perfil de {userName}</h2>
         </Content >
     );
 }

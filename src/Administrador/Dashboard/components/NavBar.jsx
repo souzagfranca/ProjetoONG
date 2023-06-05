@@ -7,7 +7,7 @@ function Sidebar() {
   const sidebarRef = useRef(null);
   const btnSidebarRef = useRef(null);
   const openSideBarRef = useRef(null);
-  const [activeItem, setActiveItem] = useState('');
+  const [activeItem, setActiveItem] = useState('perfil');
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -38,13 +38,14 @@ function Sidebar() {
 
   function handleItemClick(item) {
     setActiveItem(item);
+    handleToggle()
   }
 
   return (
     <>
       <div className={`sidebar ${isActive ? 'active' : ''}`} ref={openSideBarRef}>
         <div className="logo-area d-flex m-auto">
-          <Link to="/painel">
+          <Link to="/">
             <img src={logo} className="m-auto img-responsive" alt="Logo blackbox" />
           </Link>
         </div>

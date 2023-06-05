@@ -91,7 +91,7 @@ export default function FormCadastro() {
     const { userName, userID } = useContext(UserContext)
     return (
         <div id="cadastroArea" className="row">
-            <div id="cadastroTexto" className="col-md-6 d-flex">
+            <div id="cadastroTexto" className="col-12 col-lg-6 d-flex">
                 <div className="m-auto">
                     <div className="container text-white p-3">
                         <h1>O sistema que trará para sua empresa:</h1>
@@ -107,7 +107,7 @@ export default function FormCadastro() {
                 </div>
             </div>
 
-            <div className="col-md-6" id="cadastroForm">
+            <div className="col-12 col-lg-6" id="cadastroForm">
                 <div className="container">
                     <div className="col-md-8 mt-5 mb-5 m-auto">
                         <h2 className='my-3 fw-bold text-verde-escuro fs-1'>Inscreva-se agora !</h2>
@@ -154,7 +154,7 @@ export default function FormCadastro() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-md-9">
+                                <div className="col-md-12">
                                     <div className="form-group my-3">
                                         <label htmlFor="tel">Plano:</label>
                                         <select name="plano" className='form-control' {...register("plano", validaPlano)} id="plano">

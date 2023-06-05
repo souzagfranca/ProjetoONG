@@ -1,10 +1,11 @@
 import React from 'react';
 import pingos from '/img/pingos.png'
+import Apresentacao2 from './Apresentacao2'
 
 function App() {
 
     return (
-        <div>
+        <>
             {/* APRESENTAÇÃO 1 */}
             <section className="bg-cinza-escuro pb-5 pt-5" id='apresentacao'>
                 <div className="container">
@@ -35,8 +36,8 @@ function App() {
                     </div>
                 </div>
             </section>
-
-        </div>
+            <Apresentacao2 />
+        </>
     )
 }
 

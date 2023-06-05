@@ -52,6 +52,7 @@ h1 {
 
 .bg-cinza-escuro {
     background-color: #E0E0E0 !important;
+    
 }
 
 .bg-cinza-escuro1 {
@@ -107,6 +108,7 @@ a {
 
 #precos {
     background: url('../img/planos-esquerdo.png') left top no-repeat, url('../img/planos-direito.png') right center no-repeat;
+    margin-top: -20px;
 }
 
 #apresentacao {

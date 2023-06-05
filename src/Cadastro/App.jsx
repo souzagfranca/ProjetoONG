@@ -8,7 +8,7 @@ import FormCadastro from './components/FormCadastro';
 function App() {
   return (
     <div>
-      <NavBar />
+      <NavBar  SobreNos="sim" Planos="sim" Contato="sim"/>
       <FormCadastro />
       <Footer />
     </div>

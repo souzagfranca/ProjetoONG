@@ -4,7 +4,7 @@ export default function Estoque() {
     return (
         <Content>
             <div className="d-flex justify-content-between">
-                <h1>Lista de produtos</h1>
+                <h2>Lista de produtos</h2>
                 <button className="btn btn-info btn-sm">Adicionar novo produto</button>
             </div>
             <div className="table-responsive">
