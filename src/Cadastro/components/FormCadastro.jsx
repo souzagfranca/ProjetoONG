@@ -2,12 +2,14 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import UserContext from '../../contexts/UserContext'
+import { useParams } from "react-router"
 import './cadastro.css'
 
 export default function FormCadastro() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const { handleLogin } = useContext(UserContext)
     const navigate = useNavigate()
+    const { planos } = useParams()
 
     const validaEmail = {
         required: {
@@ -88,8 +90,8 @@ export default function FormCadastro() {
         navigate('/painel')
     }
 
-    const { userName, userID } = useContext(UserContext)
     return (
+        
         <div id="cadastroArea" className="row">
             <div id="cadastroTexto" className="col-12 col-lg-6 d-flex">
                 <div className="m-auto">
@@ -159,10 +161,10 @@ export default function FormCadastro() {
                                         <label htmlFor="tel">Plano:</label>
                                         <select name="plano" className='form-control' {...register("plano", validaPlano)} id="plano">
                                             <option value="">Selecione um plano</option>
-                                            <option value="mensal">Mensal - R$ 159</option>
-                                            <option value="trimestral">Trimestral - R$ 139</option>
-                                            <option value="semestral">Semestral - R$ 119</option>
-                                            <option value="anual">Anual - R$ 109</option>
+                                            <option selected={planos == 'mensal'} value="mensal">Mensal - R$ 159</option>
+                                            <option selected={planos == 'trimestral'} value="trimestral">Trimestral - R$ 139</option>
+                                            <option selected={planos == 'semestral'} value="semestral">Semestral - R$ 119</option>
+                                            <option selected={planos == 'anual'} value="anual">Anual - R$ 109</option>
                                         </select>
                                         {errors.plano && <p>{errors.plano.message}</p>}
                                     </div>

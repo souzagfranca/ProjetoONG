@@ -36,6 +36,7 @@ export default function App() {
                 <Route path="/planos" element={<Planos />} />
                 <Route path="/contato" element={<Planos />} />
                 <Route path="/cadastro" element={<Cadastro />} />
+                <Route path="/cadastro/:planos" element={<Cadastro />} />
 
                 {logado ? (
                     <Route path="/painel" element={<Dashboard />} >
