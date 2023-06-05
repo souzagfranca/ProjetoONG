@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
-import UserContext from '../../contexts/UserContext'
+import UserContext from '../../../../contexts/UserContext'
 import { useParams } from "react-router"
 import './cadastro.css'
 

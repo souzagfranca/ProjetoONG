@@ -7,8 +7,8 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 //PÁGINAS
 import Apresentacao from './Apresentacao/App' //PÁGINA DE APRESENTACAO
 import Planos from './Apresentacao/components/Planos'
-import Login from './Login/App' //PÁGINA DE LOGIN
-import Cadastro from './Cadastro/App' //PÁGINA DE CADASTRO
+import Login from './Apresentacao/pages/Login/App' //PÁGINA DE LOGIN
+import Cadastro from './Apresentacao/pages/Cadastro/App' //PÁGINA DE CADASTRO
 import Dashboard from './Administrador/Dashboard/App' //PAGINA DE DASHBOARD
 
 //PAINEL ADMIN
