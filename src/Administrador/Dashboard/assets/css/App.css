@@ -1,0 +1,108 @@
+body {
+    background: #f8f9fa;
+ }
+ .navbar {
+    min-height: 3em;
+ }
+
+ .logo-area {
+    background-color: #E0E0E0;
+    height: 6em;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-light {
+    background-color: #f1f1f1 !important;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #f8f9fa;
+    box-shadow: 2px 0 15px -5px #888;
+    z-index: 1;
+}
+
+.sidebar a, .sidebar i {
+    font-size: 1.3em;
+    color: black;
+}
+
+.sidebar li {
+    background-color: #F4F4F4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    min-height: 2.5em;
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    transition: color .4s ease;
+    transition: background .4s ease;
+}
+
+.sidebar li:hover {
+    background: #78CDD7;
+}
+
+.sidebar li.active {
+    background: #78CDD7;
+}
+
+.content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.me-250 {
+    margin-left: 250px;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: black !important;
+}
+
+
+.btn-info {
+    background: #78CDD7 !important;
+}
+
+#btn-sidebar {
+    background-color: #E0E0E0 !important;
+    border-color: #E0E0E0 !important;
+}
+
+
+@media (max-width: 768px) {
+
+    /* Responsive styles for mobile */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100vh;
+        background-color: #f8f9fa;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+}

@@ -10,6 +10,11 @@ import Login from './Login/App' //PÁGINA DE LOGIN
 import Cadastro from './Cadastro/App' //PÁGINA DE CADASTRO
 import Dashboard from './Administrador/Dashboard/App' //PAGINA DE DASHBOARD
 
+//PAINEL ADMIN
+import Estoque from './Administrador/Dashboard/pages/Estoque'
+import Perfil from './Administrador/Dashboard/pages/Perfil';
+import Fornecedor from './Administrador/Dashboard/pages/Fornecedor';
+
 // BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.js';
@@ -26,20 +31,17 @@ export default function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Apresentacao />} />
-                <Route path="/login" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
 
-                {logado  == true?
-                    <>
-                        <Route path="/painel" element={<Dashboard />} >
-                            <Route path='/' element={<Dashboard />} />
-                        </Route>
-                    </>
-                    :
-                    <>
-                        <Route path="/login" element={<Login />} />
-                    </>
-                }
+                {logado ? (
+                    <Route path="/painel" element={<Dashboard />} >
+                        <Route path="perfil" element={<Perfil />} />
+                        <Route path="estoque" element={<Estoque />} />
+                        <Route path="fornecedores" element={<Fornecedor />} />
+                    </Route>
+                ) : (
+                    <Route path="/login" element={<Login />} />
+                )}
 
                 <Route path="*" element={<Apresentacao />} />
             </Routes>

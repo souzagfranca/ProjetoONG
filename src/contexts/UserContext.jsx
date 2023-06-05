@@ -7,7 +7,7 @@ const UserContext = createContext({
     userDDD: 0,
     userTel: 0,
     userPlano: null,
-    logado: false,
+    logado: true,
     handleLogin: () => { },
     handleLogout: () => { }
 })
