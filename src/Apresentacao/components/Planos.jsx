@@ -9,7 +9,6 @@ function App() {
     return (
         <>
             <NavBar SobreNos="sim" Planos="sim" Contato="sim" />
-            <Banner />
             <section className='bg-cinza-escuro pt-5 pb-5' id="precos">
                 <div className="col-md-12 pb-5">
                     <div className="container">
