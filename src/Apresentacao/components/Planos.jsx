@@ -9,7 +9,7 @@ function App() {
     return (
         <>
             <NavBar SobreNos="sim" Planos="sim" Contato="sim" />
-            <section className='bg-cinza-escuro pt-5 pb-5' id="precos">
+            <section className='bg-cinza-claro pt-5 pb-5' id="precos">
                 <div className="col-md-12 pb-5">
                     <div className="container">
                         <div className="row">

@@ -16,7 +16,7 @@ function App() {
                         <div className="col-12 col-md-6">
                             <div className="card bg-cinza-escuro p-4 border-0 m-auto">
                                 <img src={mapaContato} alt="" />
-                                <p className='mt-4'><i class="bi bi-geo-alt-fill text-red me-2"></i>QI 4, Conjunto R, Casa 34, Guará-II, Brasília- DF</p>
+                                <p className='mt-4'><i className="bi bi-geo-alt-fill text-red me-2"></i>QI 4, Conjunto R, Casa 34, Guará-II, Brasília- DF</p>
                             </div>
                         </div>
 
@@ -41,7 +41,7 @@ function App() {
                                         <p>(61) 99999-9999</p>
                                     </div>
                                     <div className="col-6 py-4">
-                                        <i class="bi bi-instagram"></i>
+                                        <i className="bi bi-instagram"></i>
                                         <p>@blackbox</p>
                                     </div>
                                 </div>

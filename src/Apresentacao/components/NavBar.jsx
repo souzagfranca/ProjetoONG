@@ -11,26 +11,6 @@ function App(props) {
     const nav = document.querySelector('.navbar-collapse');
     nav.classList.remove('show');
   }
-  const scroolPlanos = () => {
-    const mainRoot = document.getElementById("precos");
-    mainRoot.scrollIntoView({ behavior: "smooth" });
-    removeNavBar()
-  }
-
-  const scroolSobreNos = () => {
-    const mainRoot = document.getElementById("apresentacao");
-    mainRoot.scrollIntoView({ behavior: "smooth" });
-    removeNavBar()
-  }
-
-  const scroolContatos = () => {
-    const mainRoot = document.getElementById("footer");
-    mainRoot.scrollIntoView({ behavior: "smooth" });
-    removeNavBar()
-
-
-  }
-
 
   var { logado } = useContext(UserContext)
   return (
@@ -88,9 +68,9 @@ function App(props) {
                     </Link>
                   </li>
                   <li className="nav-item px-3">
-                    <Link to="/cadastro">
+                    <Link to="/cadastro/mensal">
                       <small className="btn verde-escuro text-white mt-sm-0 mt-3 pe-4 ps-4 w-100"
-                        href="#">CADASTRE-SE</small>
+                        >CADASTRE-SE</small>
                     </Link>
                   </li>
                 </>

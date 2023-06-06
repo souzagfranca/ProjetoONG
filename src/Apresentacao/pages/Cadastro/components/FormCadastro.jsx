@@ -84,16 +84,14 @@ export default function FormCadastro() {
         },
     }
 
-
     function onSubmit(data) {
         handleLogin(data)
         navigate('/painel')
     }
 
     return (
-        
-        <div id="cadastroArea" className="row">
-            <div id="cadastroTexto" className="col-12 col-lg-6 d-flex">
+        <div className="row" id="cadastroArea">
+            <div className="col-12 col-lg-6 d-flex" id="cadastroTexto">
                 <div className="m-auto">
                     <div className="container text-white p-3">
                         <h1>O sistema que trará para sua empresa:</h1>
@@ -111,7 +109,7 @@ export default function FormCadastro() {
 
             <div className="col-12 col-lg-6" id="cadastroForm">
                 <div className="container">
-                    <div className="col-md-8 mt-5 mb-5 m-auto">
+                    <div className="col-md-9 col-11 mt-5 mb-5 m-auto">
                         <h2 className='my-3 fw-bold text-verde-escuro fs-1'>Inscreva-se agora !</h2>
                         <div id='card-cadastro' className="login-box border-5 rounded shadow p-3 mb-5 rounded text-white p-4">
 
@@ -160,7 +158,7 @@ export default function FormCadastro() {
                                     <div className="form-group my-3">
                                         <label htmlFor="tel">Plano:</label>
                                         <select name="plano" className='form-control' {...register("plano", validaPlano)} id="plano">
-                                            <option value="">Selecione um plano</option>
+                                            <option value="null">Selecione um plano</option>
                                             <option selected={planos == 'mensal'} value="mensal">Mensal - R$ 159</option>
                                             <option selected={planos == 'trimestral'} value="trimestral">Trimestral - R$ 139</option>
                                             <option selected={planos == 'semestral'} value="semestral">Semestral - R$ 119</option>
