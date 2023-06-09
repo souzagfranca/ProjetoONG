@@ -18,6 +18,10 @@
     color: #EBEBEB;
 }
 
+.text-red {
+    color: red;
+}
+
 nav ul li a {
     color: #706E6E !important;
     font-weight: 500 !important;
@@ -52,6 +56,7 @@ h1 {
 
 .bg-cinza-escuro {
     background-color: #E0E0E0 !important;
+    
 }
 
 .bg-cinza-escuro1 {
@@ -107,6 +112,7 @@ a {
 
 #precos {
     background: url('../img/planos-esquerdo.png') left top no-repeat, url('../img/planos-direito.png') right center no-repeat;
+    margin-top: -20px;
 }
 
 #apresentacao {
@@ -129,6 +135,12 @@ a {
 #footer .col-md-3:nth-of-type(-n+3) {
     border-right: 1px solid #343434;
     height: 160px;
+}
+#contato {
+    margin-top: -10px;
+}
+#contato li {
+    list-style: disc;
 }
 
 @media (max-width: 480px) {
