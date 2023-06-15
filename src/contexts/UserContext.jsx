@@ -1,4 +1,6 @@
 import { createContext, useState } from "react";
+import { Login, Logout } from "../services/AuthService";
+import { set } from "react-hook-form";
 
 const UserContext = createContext({
     userID: 100,
@@ -17,6 +19,20 @@ export function UserContextProvider(props) {
         userID: null,
         logado: false,
     })
+
+    async function handleLogin(email, senha) {
+        try {
+            const id = await Login(email, senha)
+            setCurrentUser({ userID: id, logado: true })
+        } catch (error) {
+            throw Error(error.message)
+        }
+    }
+
+    async function handleLogout() {
+        await Logout()
+        setCurrentUser({ userID: null, logado: false })
+    }
 
     function login(data) {
         console.log(data.name)
@@ -50,8 +66,8 @@ export function UserContextProvider(props) {
         userDDD: currentUser.userDDD,
         userTel: currentUser.userTel,
         logado: currentUser.logado,
-        handleLogin: login,
-        handleLogout: logout
+        handleLogin,
+        handleLogout,
     }
     return (
         <UserContext.Provider value={contexto}>
