@@ -22,6 +22,10 @@ export default function ScreenLogin() {
         }
     }
 
+    function navigateCadastro() {
+        navigate("/cadastro")
+    }
+
     const validaEmail = {
         required: {
             value: true,
@@ -47,29 +51,30 @@ export default function ScreenLogin() {
                     {errorLogin && <p className="erro">{errorLogin}</p>}
                     <div className="form-group mt-3">
                         <label htmlFor="email" className="text-left">Email:</label>
-                        <input type="text" name="username" className="form-control" id="email"
-                        {...register("email", validaEmail)} />
+                        <input type="email" className="form-control" id="email"
+                            {...register("email", validaEmail)} />
                         {errors.email && <p>{errors.email.message}</p>}
                     </div>
 
                     <div className="form-group mt-3">
                         <label htmlFor="username">Senha:</label>
-                        <input type="password" name="password" className="form-control" id="senha" 
-                        {...register("senha", validaSenha)} />
+                        <input type="password" name="password" className="form-control" id="senha"
+                            {...register("senha", validaSenha)} />
                         {errors.senha && <p>{errors.senha.message}</p>}
                     </div>
                     <div className="form-check">
                         <input className="form-check-input" type="checkbox" id="manter-conect" />
-                        <label className="form-check-label" for="manter-conect">Mantenha-me conectado</label>
+                        <label className="form-check-label" htmlFor="manter-conect">Mantenha-me conectado</label>
                     </div>
                     <div className="text-center">
                         <button type="submit" className="btn btn-primary mt-3 mb-3 w-60 text-center" id="bt-entrar">Entrar</button>
                     </div>
-                    <div className="text-center">
-                        <p>Não possui cadastro?</p>
-                        <button type="submit" className="btn btn-primary mb-4 w-50 text-center" id="bt-cad">Cadastre-se</button>
-                    </div>
                 </form>
+                <div className="text-center">
+                    <p>Não possui cadastro?</p>
+                    <button type="submit" className="btn btn-primary mb-4 w-50 text-center" id="bt-cad"
+                    onClick={() => navigateCadastro()}>Cadastre-se</button>
+                </div>
             </div>
         </div>
     );

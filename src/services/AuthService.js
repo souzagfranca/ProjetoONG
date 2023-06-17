@@ -15,6 +15,17 @@ export async function Login(email, senha) {
         })
 }
 
+export async function criarLogin(email, senha) {
+    return await createUserWithEmailAndPassword(auth, email, senha)
+        .then((userCredential) => {
+            const user = userCredential.user
+        })
+
+        .catch((error) => {
+            console.error('Usuário de autenticação não cadastrado', error)
+        })
+}
+
 export async function Logout() {
     await signOut(auth)
 }

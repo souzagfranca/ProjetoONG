@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import NavBar from '../../components/NavBar'
 import Footer from '../../components/Footer'
-import ScreenLogin from './components.jsx/ScreenLogin';
+import ScreenLogin from './components/ScreenLogin';
 
 function App() {
   return (
