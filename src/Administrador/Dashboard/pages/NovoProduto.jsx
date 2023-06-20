@@ -10,17 +10,17 @@ export default function NovoProduto() {
             </div>
             <form action="" className='my-4'>
 
-                <label className='mt-4' htmlFor="codigo">Codigo do produto</label>
+                <label className='mt-4 form-label' htmlFor="codigo">Codigo do produto</label>
                 <input type="number" name="codigo" id="codigo" className='form-control' placeholder='Codigo do produto' />
 
-                <label className='mt-4' htmlFor="nome">Nome do produto</label>
+                <label className='mt-4 form-label' htmlFor="nome">Nome do produto</label>
                 <input type="text" name="name" id="name" className='form-control' placeholder='Nome do produto' />
 
-                <label className='mt-4' htmlFor="marca">Marca do produto</label>
+                <label className='mt-4 form-label' htmlFor="marca">Marca do produto</label>
                 <input type="text" name="marca" id="marca" className='form-control' placeholder='Marca do produto' />
 
                 <button className='btn btn-success mt-4'>Salvar</button>
-                
+
             </form>
         </Content >
     );
