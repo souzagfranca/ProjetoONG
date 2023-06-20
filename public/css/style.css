@@ -143,6 +143,11 @@ a {
     list-style: disc;
 }
 
+.img-perfil {
+    width: 150px;
+    height: 150px;
+}
+
 @media (max-width: 480px) {
     .col-md-6.col-12 h1 {
         font-size: 2.7em;

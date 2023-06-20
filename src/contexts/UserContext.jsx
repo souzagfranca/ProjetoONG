@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 const UserContext = createContext({
-    userID: 100,
+    userID: null,
     userName: null,
     userEmail: null,
     userDDD: 0,
@@ -50,6 +50,7 @@ export function UserContextProvider(props) {
         userDDD: currentUser.userDDD,
         userTel: currentUser.userTel,
         logado: currentUser.logado,
+        userPlano: currentUser.userPlano,
         handleLogin: login,
         handleLogout: logout
     }
