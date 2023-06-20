@@ -1,4 +1,6 @@
 import { createContext, useState } from "react";
+import { Login, Logout, criarLogin } from "../services/AuthService";
+import { set } from "react-hook-form";
 
 const UserContext = createContext({
     userID: 100,
@@ -9,7 +11,8 @@ const UserContext = createContext({
     userPlano: null,
     logado: true,
     handleLogin: () => { },
-    handleLogout: () => { }
+    handleLogout: () => { },
+    criarLogin: () => { },
 })
 
 export function UserContextProvider(props) {
@@ -17,6 +20,29 @@ export function UserContextProvider(props) {
         userID: null,
         logado: false,
     })
+
+    async function handleLogin(email, senha) {
+        try {
+            const id = await Login(email, senha)
+            setCurrentUser({ userID: id, logado: true })
+        } catch (error) {
+            throw Error(error.message)
+        }
+    }
+
+    async function cadastrarUsuario(email, senha) {
+        try {
+            const id = await criarLogin(email, senha)
+            setCurrentUser({ userID: id, logado: true })
+        } catch (error) {
+            throw Error(error.message)
+        }
+    }
+
+    async function handleLogout() {
+        await Logout()
+        setCurrentUser({ userID: null, logado: false })
+    }
 
     function login(data) {
         console.log(data.name)
@@ -50,8 +76,9 @@ export function UserContextProvider(props) {
         userDDD: currentUser.userDDD,
         userTel: currentUser.userTel,
         logado: currentUser.logado,
-        handleLogin: login,
-        handleLogout: logout
+        handleLogin,
+        handleLogout,
+        criarLogin: cadastrarUsuario,
     }
     return (
         <UserContext.Provider value={contexto}>

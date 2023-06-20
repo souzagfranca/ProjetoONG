@@ -1,15 +1,19 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import UserContext from '../../../../contexts/UserContext'
+import TaskContext from '../../../../contexts/TaskContext'
 import { useParams } from "react-router"
 import './cadastro.css'
 
 export default function FormCadastro() {
     const { register, handleSubmit, formState: { errors } } = useForm()
     const { handleLogin } = useContext(UserContext)
+    const { insereCadastro } = useContext(TaskContext)
+    const { criarLogin } = useContext(UserContext)
     const navigate = useNavigate()
     const { planos } = useParams()
+    const [errorPassword, setErrorPassword] = useState('')
 
     const validaEmail = {
         required: {
@@ -84,9 +88,22 @@ export default function FormCadastro() {
         },
     }
 
-    function onSubmit(data) {
-        handleLogin(data)
-        navigate('/painel')
+    async function onSubmit(data) {
+        const { password2, ...dados } = data
+        const { email, password } = data
+
+        if (password2 !== dados.password) {
+            setErrorPassword("Senhas não correspondem, favor verificar!")
+            return
+        }
+
+        try {
+            await insereCadastro(dados)
+            await criarLogin(email, password)
+            navigate('/painel')
+        } catch (error) {
+            console.log('Não foi possível cadastrar o usuário', error.message)
+        }
     }
 
     return (
@@ -139,13 +156,6 @@ export default function FormCadastro() {
                                 </div>
 
                                 <div className="row">
-                                    <div className="col-md-3">
-                                        <div className="form-group my-3">
-                                            <label htmlFor="ddd">DDD:</label>
-                                            <input type="number" name="ddd" id="ddd" {...register("ddd", validaDDD)} className="form-control" placeholder='(61)' />
-                                            {errors.ddd && <p>{errors.ddd.message}</p>}
-                                        </div>
-                                    </div>
                                     <div className="col-md-9">
                                         <div className="form-group my-3">
                                             <label htmlFor="tel">Telefone:</label>
@@ -159,15 +169,16 @@ export default function FormCadastro() {
                                         <label htmlFor="tel">Plano:</label>
                                         <select name="plano" className='form-control' {...register("plano", validaPlano)} id="plano">
                                             <option value="null">Selecione um plano</option>
-                                            <option selected={planos == 'mensal'} value="mensal">Mensal - R$ 159</option>
-                                            <option selected={planos == 'trimestral'} value="trimestral">Trimestral - R$ 139</option>
-                                            <option selected={planos == 'semestral'} value="semestral">Semestral - R$ 119</option>
-                                            <option selected={planos == 'anual'} value="anual">Anual - R$ 109</option>
+                                            <option value="1">Mensal - R$ 159</option>
+                                            <option value="2">Trimestral - R$ 139</option>
+                                            <option value="3">Semestral - R$ 119</option>
+                                            <option value="4">Anual - R$ 109</option>
                                         </select>
                                         {errors.plano && <p>{errors.plano.message}</p>}
                                     </div>
                                 </div>
                                 <div className="text-center">
+                                    {errorPassword && <p>{errorPassword}</p>}
                                     <button type="submit" className="btn btn-primary my-5 py-3 w-75 text-center" id="bt-cad">Continuar <i className="bi bi-arrow-right ms-3"></i></button>
                                 </div>
                             </form>
