@@ -3,13 +3,13 @@ import { Login, Logout, criarLogin } from "../services/AuthService";
 import { set } from "react-hook-form";
 
 const UserContext = createContext({
-    userID: 100,
+    userID: null,
     userName: null,
     userEmail: null,
     userDDD: 0,
     userTel: 0,
     userPlano: null,
-    logado: true,
+    logado: false,
     handleLogin: () => { },
     handleLogout: () => { },
     criarLogin: () => { },

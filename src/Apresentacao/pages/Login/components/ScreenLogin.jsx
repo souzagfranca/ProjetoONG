@@ -48,6 +48,7 @@ export default function ScreenLogin() {
         <div className="col-md-3 mt-5 mb-5 m-auto">
             <div className="login-box border-5 rounded shadow p-3 mb-5 bg-white rounded">
                 <form onSubmit={handleSubmit(onSubmit)}>
+                    
                     {errorLogin && <p className="erro">{errorLogin}</p>}
                     <div className="form-group mt-3">
                         <label htmlFor="email" className="text-left">Email:</label>
@@ -73,7 +74,7 @@ export default function ScreenLogin() {
                 <div className="text-center">
                     <p>Não possui cadastro?</p>
                     <button type="submit" className="btn btn-primary mb-4 w-50 text-center" id="bt-cad"
-                    onClick={() => navigateCadastro()}>Cadastre-se</button>
+                        onClick={() => navigateCadastro()}>Cadastre-se</button>
                 </div>
             </div>
         </div>
