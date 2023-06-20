@@ -15,6 +15,7 @@ export default function FormCadastro() {
     const { planos } = useParams()
     const [errorPassword, setErrorPassword] = useState('')
 
+
     const validaEmail = {
         required: {
             value: true,
@@ -156,7 +157,7 @@ export default function FormCadastro() {
                                 </div>
 
                                 <div className="row">
-                                    <div className="col-md-9">
+                                    <div className="col-md-12">
                                         <div className="form-group my-3">
                                             <label htmlFor="tel">Telefone:</label>
                                             <input type="number" name="tel" id="tel" {...register("tel", validaTel)} className="form-control" placeholder='9 9999-9999' />
@@ -167,12 +168,12 @@ export default function FormCadastro() {
                                 <div className="col-md-12">
                                     <div className="form-group my-3">
                                         <label htmlFor="tel">Plano:</label>
-                                        <select name="plano" className='form-control' {...register("plano", validaPlano)} id="plano">
+                                        <select name="plano" className='form-control' {...register("plano", validaPlano)} defaultValue={planos} id="plano">
                                             <option value="null">Selecione um plano</option>
-                                            <option value="1">Mensal - R$ 159</option>
-                                            <option value="2">Trimestral - R$ 139</option>
-                                            <option value="3">Semestral - R$ 119</option>
-                                            <option value="4">Anual - R$ 109</option>
+                                            <option value="mensal">Mensal - R$ 159</option>
+                                            <option value="trimestral">Trimestral - R$ 139</option>
+                                            <option value="semestral">Semestral - R$ 119</option>
+                                            <option value="anual">Anual - R$ 109</option>
                                         </select>
                                         {errors.plano && <p>{errors.plano.message}</p>}
                                     </div>

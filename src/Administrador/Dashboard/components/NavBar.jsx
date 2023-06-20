@@ -1,8 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import logo from '../../../../public/img/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import UserContext from '../../../contexts/UserContext'
+
 
 function Sidebar() {
+  const navigate = useNavigate()
+  
+  const {
+    logado
+  } = useContext(UserContext)
+
+
   const [isActive, setIsActive] = useState(false);
   const sidebarRef = useRef(null);
   const btnSidebarRef = useRef(null);
@@ -20,9 +29,15 @@ function Sidebar() {
 
     document.addEventListener('click', handleClickOutside);
 
+    if (!logado) {
+      navigate('/login')
+    }
+
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
+    
+    
   }, [isActive]);
 
   function handleToggle() {
@@ -66,6 +81,12 @@ function Sidebar() {
             <li className={`pt-2 pb-2 my-2 text-center ${activeItem === 'fornecedores' ? 'active' : ''}`}>
               <i className="bi bi-calendar-event fw-bold me-2"></i>
               FORNECEDORES
+            </li>
+          </Link>
+          <Link to="/logout">
+            <li className={`pt-2 pb-2 my-2 text-center`}>
+              <i className="bi bi-box-arrow-left fw-bold me-2"></i>
+              SAIR
             </li>
           </Link>
         </div>

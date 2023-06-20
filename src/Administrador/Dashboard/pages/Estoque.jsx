@@ -1,3 +1,4 @@
+import Button from '../components/Button';
 import Content from '../components/Content'
 
 export default function Estoque() {
@@ -5,7 +6,7 @@ export default function Estoque() {
         <Content>
             <div className="d-flex justify-content-between">
                 <h2>Lista de produtos</h2>
-                <button className="btn btn-info btn-sm">Adicionar novo produto</button>
+                <Button link="novoProduto" title="Adicionar novo produto"/>
             </div>
             <div className="table-responsive">
                 <table className="table table-striped mt-5">
