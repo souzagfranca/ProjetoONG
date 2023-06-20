@@ -16,6 +16,8 @@ import Dashboard from './Administrador/Dashboard/App' //PAGINA DE DASHBOARD
 import Estoque from './Administrador/Dashboard/pages/Estoque'
 import Perfil from './Administrador/Dashboard/pages/Perfil';
 import Fornecedor from './Administrador/Dashboard/pages/Fornecedor';
+import NovoProduto from './Administrador/Dashboard/pages/NovoProduto'
+import NovoFornecedor from './Administrador/Dashboard/pages/NovoFornecedor'
 
 // BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -45,6 +47,8 @@ export default function App() {
                         <Route path="estoque" element={<Estoque />} />
                         <Route path="perfil" element={<Perfil />} />
                         <Route path="fornecedores" element={<Fornecedor />} />
+                        <Route path="estoque/novoProduto" element={<NovoProduto/>} />
+                        <Route path="fornecedores/novoFornecedor" element={<NovoFornecedor/>} />
                     </Route>
                 ) : (
                     <Route path="/login" element={<Login />} />
