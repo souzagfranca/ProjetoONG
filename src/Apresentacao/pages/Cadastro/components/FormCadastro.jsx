@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import UserContext from '../../../../contexts/UserContext'
 import TaskContext from '../../../../contexts/TaskContext'
 import { useParams } from "react-router"
@@ -13,6 +13,7 @@ export default function FormCadastro() {
     const { criarLogin } = useContext(UserContext)
     const navigate = useNavigate()
     const { planos } = useParams()
+    const [errorPassword, setErrorPassword] = useState('')
 
     const validaEmail = {
         required: {
@@ -92,7 +93,7 @@ export default function FormCadastro() {
         const { email, password } = data
 
         if (password2 !== dados.password) {
-            console.log('Senhas não correspondem!')
+            setErrorPassword("Senhas não correspondem, favor verificar!")
             return
         }
 
@@ -177,6 +178,7 @@ export default function FormCadastro() {
                                     </div>
                                 </div>
                                 <div className="text-center">
+                                    {errorPassword && <p>{errorPassword}</p>}
                                     <button type="submit" className="btn btn-primary my-5 py-3 w-75 text-center" id="bt-cad">Continuar <i className="bi bi-arrow-right ms-3"></i></button>
                                 </div>
                             </form>
