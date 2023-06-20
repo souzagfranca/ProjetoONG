@@ -7,11 +7,14 @@ import '/public/css/style.css'
 
 //USER CONTEXT
 import { UserContextProvider } from './contexts/UserContext';
+import { TaskContextProvider } from './contexts/TaskContext';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <UserContextProvider>
-      <App />
+      <TaskContextProvider>
+        <App />
+      </TaskContextProvider>
     </UserContextProvider>
   </React.StrictMode>
 )
