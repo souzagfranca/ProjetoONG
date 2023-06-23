@@ -6,7 +6,7 @@ export default function Estoque() {
         <Content>
             <div className="d-flex justify-content-between">
                 <h2>Lista de produtos</h2>
-                <Button link="novoProduto" title="Adicionar novo produto"/>
+                <Button link="novoProduto" title="Adicionar novo produto" />
             </div>
             <div className="table-responsive">
                 <table className="table table-striped mt-5">
@@ -17,6 +17,7 @@ export default function Estoque() {
                             <th>Nome</th>
                             <th>Marca</th>
                             <th>Cadastro</th>
+                            <th>Ação</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -26,6 +27,10 @@ export default function Estoque() {
                             <td>Arroz</td>
                             <td>Skol</td>
                             <td>31/05/2023</td>
+                            <td>
+                                <i class="bi bi-pencil-square text-info"></i>
+                                <i class="bi bi-trash3 ms-3 text-danger"></i>
+                            </td>
                         </tr>
                         <tr>
                             <th>2</th>
@@ -33,6 +38,10 @@ export default function Estoque() {
                             <td>Feijão</td>
                             <td>Skol</td>
                             <td>01/01/2022</td>
+                            <td>
+                                <i class="bi bi-pencil-square text-info"></i>
+                                <i class="bi bi-trash3 ms-3 text-danger"></i>
+                            </td>
                         </tr>
                         <tr>
                             <th>3</th>
@@ -40,6 +49,10 @@ export default function Estoque() {
                             <td>Açucar</td>
                             <td>Skol</td>
                             <td>01/01/2022</td>
+                            <td>
+                                <i class="bi bi-pencil-square text-info"></i>
+                                <i class="bi bi-trash3 ms-3 text-danger"></i>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
