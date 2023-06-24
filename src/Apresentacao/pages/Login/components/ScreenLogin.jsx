@@ -63,10 +63,6 @@ export default function ScreenLogin() {
                             {...register("senha", validaSenha)} />
                         {errors.senha && <p>{errors.senha.message}</p>}
                     </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="checkbox" id="manter-conect" />
-                        <label className="form-check-label" htmlFor="manter-conect">Mantenha-me conectado</label>
-                    </div>
                     <div className="text-center">
                         <button type="submit" className="btn btn-primary mt-3 mb-3 w-60 text-center" id="bt-entrar">Entrar</button>
                     </div>
