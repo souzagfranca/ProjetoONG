@@ -1,4 +1,4 @@
-import { getFirestore, collection, addDoc, getDocs, query, where, doc } from 'firebase/firestore'
+import { getFirestore, collection, addDoc, getDocs, query, where, doc, deleteDoc, updateDoc } from 'firebase/firestore'
 import { app } from './FirebaseConfig'
 
 const db = getFirestore(app)
@@ -55,4 +55,18 @@ export async function listarProdutos() {
         dadosProdutos.push({ key: doc.id, ...doc.data() })
     })
     return dadosProdutos
+}
+
+export async function removeProduto(key) {
+    await deleteDoc(doc(db, "guilhermefran8@gmail.com", key))
+}
+
+export async function modificaProduto(produto) {
+    console.log(produto)
+    await updateDoc(doc(db, "guilhermefran8@gmail.com", produto.key), 
+        {name: produto.name, 
+		marca: produto.marca, 
+		quantidade: produto.quantidade, 
+		valorcusto: produto.valorcusto, 
+		valorvenda: produto.valorvenda})
 }

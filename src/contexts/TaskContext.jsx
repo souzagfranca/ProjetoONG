@@ -1,11 +1,13 @@
 import { createContext, useState, useEffect } from "react";
-import { insereCadastro, listarDadosUsuario, insereProduto, listarProdutos } from "../services/FirestoreService";
+import { insereCadastro, listarDadosUsuario, insereProduto, listarProdutos, removeProduto, modificaProduto } from "../services/FirestoreService";
 
 const TaskContext = createContext({
     insereCadastro: () => { },
     insereProduto: () => { },
     listarDadosUsuario: () => { },
     listarProdutos: () => { },
+    removeProduto: () => { },
+    modificaProduto: () => { },
     email: '',
     nome: '',
     telefone: '',
@@ -22,6 +24,9 @@ export function TaskContextProvider(props) {
     const [nome, setNome] = useState('')
     const [telefone, setTelefone] = useState('')
     const [plano, setPlano] = useState('')
+
+    //estado do produto
+    const [dadosProdutos, setDadosProdutos] = useState([])
 
     async function inserir(usuario) {
         try {
@@ -57,24 +62,43 @@ export function TaskContextProvider(props) {
         listarDados()
     }, [])
 
-    useEffect(() => {
-        async function produtos() {
-            try {
-                const produtos = await listarProdutos()
-            } catch (error) {
-                throw Error(error.message)
-            }
+    async function buscaProdutos() {
+        try {
+            const data = await listarProdutos()
+            setDadosProdutos(data)
+        } catch (error) {
+            throw Error(error.message)
         }
-        produtos()
-    }, [])
+    }
+
+    async function remover(key) {
+        try {
+            await removeProduto(key)
+            setDadosProdutos((valorAntigo) => valorAntigo.filter((item) => item.key != key))
+        } catch (error) {
+            throw Error(error.message)
+        }
+    }
+
+    async function modificar(produto) {
+        try {
+            await modificaProduto(produto)
+        } catch (error) {
+            throw Error(error.message)
+        }
+    }
 
     const contexto = {
         insereCadastro: inserir,
         insereProduto: cadastrarProduto,
+        buscaProdutos,
+        remover,
+        modificar,
         email,
         nome,
         telefone,
         plano,
+        dadosProdutos,
     }
 
     return (
