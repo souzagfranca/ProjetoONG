@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { Login, Logout, criarLogin } from "../services/AuthService";
+import { listarDadosUsuario } from "../services/FirestoreService";
 import { set } from "react-hook-form";
 
 const UserContext = createContext({
@@ -8,9 +9,11 @@ const UserContext = createContext({
     handleLogin: () => { },
     handleLogout: () => { },
     criarLogin: () => { },
+    listarDadosUsuario: () => { },
 })
 
 export function UserContextProvider(props) {
+    const [dadosUser, setDadosUser] = useState([])
     const [currentUser, setCurrentUser] = useState({
         userID: null,
         logado: false,
@@ -20,6 +23,15 @@ export function UserContextProvider(props) {
         try {
             const id = await Login(email, senha)
             setCurrentUser({ userID: email, logado: true })
+        } catch (error) {
+            throw Error(error.message)
+        }
+    }
+
+    async function buscaDadosUsuario() {
+        try {
+            const dados = await listarDadosUsuario()
+            setDadosUser(dados)
         } catch (error) {
             throw Error(error.message)
         }
@@ -42,9 +54,11 @@ export function UserContextProvider(props) {
     const contexto = {
         userID: currentUser.userID,
         logado: currentUser.logado,
+        dadosUser,
         handleLogin,
         handleLogout,
         criarLogin: cadastrarUsuario,
+        buscaDadosUsuario,
     }
     return (
         <UserContext.Provider value={contexto}>

@@ -28,7 +28,7 @@ export default function NovoProduto() {
             </div>
             <form onSubmit={handleSubmit(onSubmit)} action="" className='my-4'>
 
-                <label className='mt-4 form-label' htmlFor="nome">Descrição do produto</label>
+                <label className='mt-4 form-label' htmlFor="nome">Descrição</label>
                 <input type="text" name="name" id="name" className='form-control' placeholder='Nome do produto' {...register("name")} />
                 <input type="text" name="tipo" className='d-none' defaultValue="produto" {...register("tipo")}/>
                 

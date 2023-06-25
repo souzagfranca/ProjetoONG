@@ -30,6 +30,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import '/public/css/style.css'
 
 import UserContext from './contexts/UserContext'
+import EditarFornecedor from './Administrador/Dashboard/pages/EditarFornecedor';
 
 export default function App() {
     const { logado } = useContext(UserContext)
@@ -57,6 +58,7 @@ export default function App() {
                     <Route path="estoque/novoProduto" element={<NovoProduto />} />
                     <Route path="fornecedores/novoFornecedor" element={<NovoFornecedor />} />
                     <Route path="estoque/editar/:key" element={<EditarProduto />} />
+                    <Route path="fornecedores/editarFornecedor/:key" element={<EditarFornecedor />} />
                 </Route>
 
                 <Route path="*" element={<Apresentacao />} />

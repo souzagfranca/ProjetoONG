@@ -28,6 +28,18 @@ export async function insereProduto(produto) {
     }
 }
 
+export async function inserePessoa(pessoa) {
+    try {
+        const docRef = await addDoc(collection(db, "guilhermefran8@gmail.com"), pessoa)
+            .then((docRef) => {
+                console.log('Cadastro realizado com sucesso!', docRef.id)
+            })
+
+    } catch (error) {
+        console.error('Erro ao cadastrar fornecedor.', error)
+    }
+}
+
 export async function listarDadosUsuario() {
     const dadosUsuario = []
     const response = await getDocs(
@@ -57,7 +69,39 @@ export async function listarProdutos() {
     return dadosProdutos
 }
 
+export async function listarPessoa() {
+    const dadosPessoa = []
+    const response = await getDocs(
+        query(
+            collection(db, "guilhermefran8@gmail.com"),
+            where("tipo", '==', 'pessoa')
+        )
+    )
+    response.forEach((doc) => {
+        dadosPessoa.push({ key: doc.id, ...doc.data() })
+    })
+    return dadosPessoa
+}
+
+export async function listarFornecedores() {
+    const dadosPessoa = []
+    const response = await getDocs(
+        query(
+            collection(db, "guilhermefran8@gmail.com"),
+            where("tipo", '==', 'pessoa')
+        )
+    )
+    response.forEach((doc) => {
+        dadosPessoa.push({ key: doc.id, ...doc.data() })
+    })
+    return dadosPessoa
+}
+
 export async function removeProduto(key) {
+    await deleteDoc(doc(db, "guilhermefran8@gmail.com", key))
+}
+
+export async function removePessoa(key) {
     await deleteDoc(doc(db, "guilhermefran8@gmail.com", key))
 }
 
@@ -69,4 +113,13 @@ export async function modificaProduto(produto) {
 		quantidade: produto.quantidade, 
 		valorcusto: produto.valorcusto, 
 		valorvenda: produto.valorvenda})
+}
+
+export async function modificaPessoa(pessoa) {
+    await updateDoc(doc(db, "guilhermefran8@gmail.com", pessoa.key), 
+        {nome: pessoa.nome, 
+		cpf: pessoa.cpf, 
+		empresa: pessoa.empresa, 
+		cnpj: pessoa.cnpj, 
+		telefone: pessoa.telefone})
 }

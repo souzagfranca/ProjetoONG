@@ -1,11 +1,12 @@
 import Content from '../components/Content'
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import UserContext from '../../../contexts/UserContext'
 import TaskContext from '../../../contexts/TaskContext'
 import fotoPerfil from '../../../../public/img/foto_perfil.png'
 
 export default function Perfil() {
-    const { nome, email, telefone, plano } = useContext(TaskContext)
+    const { dadosUser, buscaDadosUsuario } = useContext(UserContext)
+    const { email, name, plano, tel } = dadosUser[0] || {}
 
     const editar = () => {
         document.getElementById("nome").removeAttribute('disabled')
@@ -17,10 +18,21 @@ export default function Perfil() {
         document.getElementById("editar").firstChild.data = "Salvar"
     }
 
+    useEffect(() => {
+        async function listarUsuario() {
+            await buscaDadosUsuario()
+        }
+        listarUsuario()
+    }, [])
+
+    if(!dadosUser || dadosUser.length === 0){
+        return <div>Carregando...</div>
+    }
+
     return (
         <Content>
             <div className="card-header">
-                <h3 className="card-title">Perfil de {nome}</h3>
+                <h3 className="card-title">Perfil de {name}</h3>
             </div>
             <div className="card-body my-5">
                 <div className="text-center">
@@ -32,7 +44,7 @@ export default function Perfil() {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="nome" className="form-label">Nome completo</label>
-                    <input type="text" disabled className="form-control" id="nome" placeholder="Digite seu nome" defaultValue={nome} />
+                    <input type="text" disabled className="form-control" id="nome" placeholder="Digite seu nome" defaultValue={name} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">E-mail</label>
@@ -42,7 +54,7 @@ export default function Perfil() {
                     <div className="row">
                         <div className="col-md-11">
                             <label htmlFor="tel" className="form-label">Telefone</label>
-                            <input type="tel" disabled className="form-control" id="tel" placeholder="Telefone" defaultValue={telefone} />
+                            <input type="tel" disabled className="form-control" id="tel" placeholder="Telefone" defaultValue={tel} />
                         </div>
                     </div>
                 </div>

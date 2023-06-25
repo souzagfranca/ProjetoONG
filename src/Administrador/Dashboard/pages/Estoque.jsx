@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Content from '../components/Content'
@@ -34,8 +34,9 @@ export default function Estoque() {
                     <thead>
                         <tr>
                             <th>Código</th>
-                            <th>Nome</th>
+                            <th>Descrição</th>
                             <th>Marca</th>
+                            <th>Quantidade</th>
                             <th>Valor de Custo</th>
                             <th>Valor de Venda</th>
                             <th>Ação</th>
@@ -47,6 +48,7 @@ export default function Estoque() {
                                 <th>{index + 1}</th>
                                 <td>{produto.name}</td>
                                 <td>{produto.marca}</td>
+                                <td>{produto.quantidade}</td>
                                 <td>{produto.valorcusto}</td>
                                 <td>{produto.valorvenda}</td>
                                 <td>

@@ -26,13 +26,13 @@ export default function EditarProduto() {
     return (
         <Content>
             <div className="d-flex justify-content-between">
-                <h2>Novo produto</h2>
+                <h2>Editar produto</h2>
                 <Button link="/painel/estoque" title="Voltar" />
             </div>
             <form onSubmit={handleSubmit(onSubmit)} action="" className='my-4'>
                 <input type="hidden" {...register("key")} value={key} />
 
-                <label className='mt-4 form-label' htmlFor="nome">Descrição do produto</label>
+                <label className='mt-4 form-label' htmlFor="nome">Descrição</label>
                 <input type="text" name="name" id="name" className='form-control' placeholder='Nome do produto' {...register("name")} />
                 <input type="text" name="tipo" className='d-none' defaultValue="produto" {...register("tipo")} />
 

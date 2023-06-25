@@ -1,23 +1,25 @@
 import { useForm } from 'react-hook-form'
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../components/Button';
 import Content from '../components/Content'
 import TaskContext from '../../../contexts/TaskContext';
 
-
-export default function NovoFornecedor() {
+export default function EditarFornecedor() {
     const { register, handleSubmit } = useForm()
-    const { cadastrarPessoa } = useContext(TaskContext)
+    const { editarPessoa, dadosPessoa } = useContext(TaskContext)
+    const { key } = useParams()
+    const pessoa = dadosPessoa.find((item) => item.key == key)
     const navigate = useNavigate()
 
     async function onSubmit(data) {
-
         try {
-            await cadastrarPessoa(data)
-            navigate('/painel/fornecedores')
+            // Chamar a TaskService
+            await editarPessoa(data)
+            // Navegar para home
+            navigate("/painel/fornecedores")
         } catch (error) {
-            console.log('Não foi possível cadastrar o fornecedor', error.message)
+            console.log(error.message)
         }
     }
 
@@ -28,19 +30,20 @@ export default function NovoFornecedor() {
                 <Button link="/painel/fornecedores" title="Voltar" />
             </div>
             <form onSubmit={handleSubmit(onSubmit)} action="" className='my-4'>
+                <input type="hidden" {...register("key")} value={key} />
 
                 <label className='mt-4 form-label' htmlFor="nome">Representante</label>
-                <input type="text" name="nome" id="nome" className='form-control' placeholder='Nome do fornecedor' {...register("nome")}/>
-                <input type="text" name="tipo" className='d-none' defaultValue="pessoa" {...register("tipo")}/>
+                <input type="text" name="nome" id="nome" className='form-control' defaultValue={dadosPessoa.nome} placeholder='Nome do fornecedor' {...register("nome")} />
+                <input type="text" name="tipo" className='d-none' defaultValue="pessoa" {...register("tipo")} />
 
                 <label className='mt-4 form-label' htmlFor="cpf">CPF</label>
-                <input type="number" name="cpf" id="cpf" className='form-control' placeholder='CPF' {...register("cpf")}/>
+                <input type="number" name="cpf" id="cpf" className='form-control' placeholder='CPF' {...register("cpf")} />
 
                 <label className='mt-4 form-label' htmlFor="empresa">Empresa</label>
                 <input type="text" name="empresa" id="empresa" className='form-control' placeholder='Nome da empresa' {...register("empresa")} />
 
                 <label className='mt-4 form-label' htmlFor="cnpj">CNPJ</label>
-                <input type="number" name="cnpj" id="cnpj" className='form-control' placeholder='CNPJ' {...register("cnpj")}/>
+                <input type="number" name="cnpj" id="cnpj" className='form-control' placeholder='CNPJ' {...register("cnpj")} />
 
                 <label className='mt-4 form-label' htmlFor="telefone">Telefone</label>
                 <input type="tel" name="telefone" id="telefone" className='form-control' placeholder='Telefone' {...register("telefone")} />
