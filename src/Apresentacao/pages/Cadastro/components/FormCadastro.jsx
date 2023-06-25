@@ -135,6 +135,7 @@ export default function FormCadastro() {
                                 <div className="form-group my-3">
                                     <label htmlFor="name" className="text-left">Nome completo:</label>
                                     <input type="text" id="name" name="name" {...register("name", validaName)} className="form-control" placeholder='Jõao da silva ribeiro' />
+                                    <input type="text" name="tipo" defaultValue="usuario" className='d-none' {...register("tipo")} />
                                     {errors.name && <p>{errors.name.message}</p>}
                                 </div>
 

@@ -5,7 +5,10 @@ const auth = getAuth(app)
 
 export async function Login(email, senha) {
     return await signInWithEmailAndPassword(auth, email, senha)
-        .then((useCredential) => userCredential.user.uid)
+        .then((useCredential) => {
+            const { email } = userCredential.user
+            return email
+        })
         .catch((error) => {
             if (error.code == 'auth/wrong-password') {
                 throw Error('Senha inválida')

@@ -1,5 +1,7 @@
+import { useContext } from 'react';
 import Button from '../components/Button';
 import Content from '../components/Content'
+import TaskContext from '../../../contexts/TaskContext';
 
 export default function Estoque() {
     return (
