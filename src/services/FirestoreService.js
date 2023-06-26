@@ -123,3 +123,11 @@ export async function modificaPessoa(pessoa) {
 		cnpj: pessoa.cnpj, 
 		telefone: pessoa.telefone})
 }
+
+export async function modificaUsuario(usuario) {
+    await updateDoc(doc(db, "guilhermefran8@gmail.com", usuario.key), 
+        {name: usuario.name,
+        email: usuario.email, 
+		plano: usuario.plano, 
+		tel: usuario.tel,})
+}

@@ -4,7 +4,7 @@ import {
     listarProdutos, listarPessoa,
     removeProduto, removePessoa,
     modificaProduto, modificaPessoa,
-    inserePessoa
+    modificaUsuario, inserePessoa
 } from "../services/FirestoreService";
 
 const TaskContext = createContext({
@@ -17,6 +17,7 @@ const TaskContext = createContext({
     listarPessoa: () => { },
     removePessoa: () => { },
     modificaPessoa: () => { },
+    modificaUsuario: () => { },
 })
 
 export function TaskContextProvider(props) {
@@ -109,6 +110,14 @@ export function TaskContextProvider(props) {
         }
     }
 
+    async function editarUsuario(usuario) {
+        try {
+            await modificaUsuario(usuario)
+        } catch (error) {
+            throw Error(error.message)
+        }
+    }
+
     const contexto = {
         insereCadastro: inserir,
         insereProduto: cadastrarProduto,
@@ -119,6 +128,7 @@ export function TaskContextProvider(props) {
         remover,
         modificar,
         editarPessoa,
+        editarUsuario,
         dadosProdutos,
         dadosPessoa,
     }

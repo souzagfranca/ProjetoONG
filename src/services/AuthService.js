@@ -14,6 +14,8 @@ export async function Login(email, senha) {
                 throw Error('Senha inválida')
             } else if (error.code == 'auth/user-not-found') {
                 throw Error('Usuário não encontrado')
+            } else if (error.code == 'auth/email-already-in-use') {
+                throw Error('Usuário já cadastrado')
             }
         })
 }

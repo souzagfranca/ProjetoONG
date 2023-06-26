@@ -99,8 +99,8 @@ export default function FormCadastro() {
         }
 
         try {
-            await insereCadastro(dados)
             await criarLogin(email, password)
+            await insereCadastro(dados)
             navigate('/painel')
         } catch (error) {
             console.log('Não foi possível cadastrar o usuário', error.message)
