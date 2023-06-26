@@ -27,7 +27,7 @@ export default function Estoque() {
         <Content>
             <div className="d-flex justify-content-between">
                 <h2>Lista de produtos</h2>
-                <Button link="novoProduto" title="Adicionar novo produto" />
+                <Button link="novoProduto" title="Cadastrar produto" />
             </div>
             <div className="table-responsive">
                 <table className="table table-striped mt-5">
