@@ -1,59 +1,62 @@
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Content from '../components/Content'
+import TaskContext from '../../../contexts/TaskContext';
 
 export default function Estoque() {
+    const { buscaProdutos, dadosProdutos, remover } = useContext(TaskContext)
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        async function listarProdutos() {
+            await buscaProdutos()
+        }
+        listarProdutos()
+    }, [])
+
+    async function handleRemover(key) {
+        await remover(key)
+    }
+
+    function handleEditar(key) {
+        navigate("/painel/estoque/editar/" + key)
+    }	
+
     return (
         <Content>
             <div className="d-flex justify-content-between">
                 <h2>Lista de produtos</h2>
-                <Button link="novoProduto" title="Adicionar novo produto" />
+                <Button link="novoProduto" title="Cadastrar produto" />
             </div>
             <div className="table-responsive">
                 <table className="table table-striped mt-5">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Codigo</th>
-                            <th>Nome</th>
+                            <th>Código</th>
+                            <th>Descrição</th>
                             <th>Marca</th>
-                            <th>Cadastro</th>
+                            <th>Quantidade</th>
+                            <th>Valor de Custo</th>
+                            <th>Valor de Venda</th>
                             <th>Ação</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>789</td>
-                            <td>Arroz</td>
-                            <td>Skol</td>
-                            <td>31/05/2023</td>
-                            <td>
-                                <i class="bi bi-pencil-square text-info"></i>
-                                <i class="bi bi-trash3 ms-3 text-danger"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>101010</td>
-                            <td>Feijão</td>
-                            <td>Skol</td>
-                            <td>01/01/2022</td>
-                            <td>
-                                <i class="bi bi-pencil-square text-info"></i>
-                                <i class="bi bi-trash3 ms-3 text-danger"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>909090</td>
-                            <td>Açucar</td>
-                            <td>Skol</td>
-                            <td>01/01/2022</td>
-                            <td>
-                                <i class="bi bi-pencil-square text-info"></i>
-                                <i class="bi bi-trash3 ms-3 text-danger"></i>
-                            </td>
-                        </tr>
+                        {dadosProdutos.map((produto, index) => (
+                            <tr key={index}>
+                                <th>{index + 1}</th>
+                                <td>{produto.name}</td>
+                                <td>{produto.marca}</td>
+                                <td>{produto.quantidade}</td>
+                                <td>{produto.valorcusto}</td>
+                                <td>{produto.valorvenda}</td>
+                                <td>
+                                    <i onClick={() => handleEditar(produto.key)} className="bi bi-pencil-square text-info"></i>
+                                    <i onClick={() => handleRemover(produto.key)} className="bi bi-trash3 ms-3 text-danger"></i>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>

@@ -7,7 +7,7 @@ import '../assets/App.css'
 export default function ScreenLogin() {
     const form = useForm()
     const { register, handleSubmit, formState: { errors } } = form
-    const { handleLogin } = useContext(UserContext)
+    const { handleLogin, buscaDadosUsuario } = useContext(UserContext)
     const [errorLogin, setErrorLogin] = useState()
     const navigate = useNavigate()
 
