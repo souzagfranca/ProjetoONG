@@ -35,7 +35,7 @@ export default function Fornecedor() {
                 <table className="table table-striped mt-5">
                     <thead>
                         <tr>
-                            <th>Codigo</th>
+                            <th>Código</th>
                             <th>Empresa</th>
                             <th>CNPJ</th>
                             <th>Representante</th>
@@ -52,8 +52,8 @@ export default function Fornecedor() {
                                 <td>{pessoa.nome}</td>
                                 <td>{pessoa.telefone}</td>
                                 <td>
-                                    <i onClick={() => handleEditar(pessoa.key)} class="bi bi-pencil-square text-info"></i>
-                                    <i onClick={() => handleRemover(pessoa.key)} class="bi bi-trash3 ms-3 text-danger"></i>
+                                    <i onClick={() => handleEditar(pessoa.key)} title='Editar' class="bi bi-pencil-square text-info cursor-pointer"></i>
+                                    <i onClick={() => handleRemover(pessoa.key)} title='Aapagar' class="bi bi-trash3 ms-3 text-danger cursor-pointer"></i>
                                 </td>
                             </tr>
                         ))}

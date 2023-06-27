@@ -52,8 +52,8 @@ export default function Estoque() {
                                 <td>{produto.valorcusto}</td>
                                 <td>{produto.valorvenda}</td>
                                 <td>
-                                    <i onClick={() => handleEditar(produto.key)} className="bi bi-pencil-square text-info"></i>
-                                    <i onClick={() => handleRemover(produto.key)} className="bi bi-trash3 ms-3 text-danger"></i>
+                                    <i onClick={() => handleEditar(produto.key)} title='Editar' className="bi bi-pencil-square text-info cursor-pointer"></i>
+                                    <i onClick={() => handleRemover(produto.key)} title='Apagar' className="bi bi-trash3 ms-3 text-danger cursor-pointer"></i>
                                 </td>
                             </tr>
                         ))}
