@@ -3,11 +3,13 @@ import { useContext, useEffect, useState } from "react";
 import UserContext from "../../../contexts/UserContext";
 import TaskContext from "../../../contexts/TaskContext";
 import fotoPerfil from "../../../../public/img/foto_perfil.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Perfil() {
-  const { dadosUser, buscaDadosUsuario } = useContext(UserContext);
+  const { dadosUser, buscaDadosUsuario, deleteUser } = useContext(UserContext);
   const [Carregando, setCarregando] = useState(false);
   const { email, name, plano, tel } = dadosUser[0] || {};
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function listarUsuario() {
@@ -17,6 +19,12 @@ export default function Perfil() {
     }
     listarUsuario();
   }, []);
+
+
+  function handleDeleteUser() {
+    deleteUser()
+    navigate('/login')
+  }
 
   return (
     <Content>
@@ -125,7 +133,7 @@ export default function Perfil() {
               value="Ativo"
             />
           </div>
-          <button type="button" className="btn btn-danger ms-3">
+          <button type="button" onClick={handleDeleteUser} className="btn btn-danger">
             Excluir conta
           </button>
         </div>
