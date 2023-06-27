@@ -23,7 +23,7 @@ export default function ScreenLogin() {
     }
 
     function navigateCadastro() {
-        navigate("/cadastro")
+        navigate("/cadastro/mensal")
     }
 
     const validaEmail = {

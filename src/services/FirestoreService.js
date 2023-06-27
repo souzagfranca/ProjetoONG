@@ -3,6 +3,7 @@ import { app } from './FirebaseConfig'
 
 const db = getFirestore(app)
 
+
 export async function insereCadastro(usuario) {
     const idUsuario = usuario.email
     try {
@@ -16,9 +17,9 @@ export async function insereCadastro(usuario) {
     }
 }
 
-export async function insereProduto(produto) {
+export async function insereProduto(produto, userEmail) {
     try {
-        const docRef = await addDoc(collection(db, "guilhermefran8@gmail.com"), produto)
+        const docRef = await addDoc(collection(db, userEmail), produto)
             .then((docRef) => {
                 console.log('Cadastro realizado com sucesso!', docRef.id)
             })
@@ -28,9 +29,9 @@ export async function insereProduto(produto) {
     }
 }
 
-export async function inserePessoa(pessoa) {
+export async function inserePessoa(pessoa, userEmail) {
     try {
-        const docRef = await addDoc(collection(db, "guilhermefran8@gmail.com"), pessoa)
+        const docRef = await addDoc(collection(db, userEmail), pessoa)
             .then((docRef) => {
                 console.log('Cadastro realizado com sucesso!', docRef.id)
             })
@@ -40,26 +41,27 @@ export async function inserePessoa(pessoa) {
     }
 }
 
-export async function listarDadosUsuario() {
+export async function listarDadosUsuario(userEmail) {
     const dadosUsuario = []
     const response = await getDocs(
         query(
-            collection(db, "guilhermefran8@gmail.com"),
+            collection(db, userEmail),
             where("tipo", '==', 'usuario')
         )
     )
     response.forEach((doc) => {
         dadosUsuario.push({ key: doc.id, ...doc.data() })
     })
+    console.log(dadosUsuario)
     return dadosUsuario
 }
 
-export async function listarProdutos() {
+export async function listarProdutos(userEmail) {
     const dadosProdutos = []
     //console.log(dadosProdutos)
     const response = await getDocs(
         query(
-            collection(db, "guilhermefran8@gmail.com"),
+            collection(db, userEmail),
             where("tipo", '==', 'produto')
         )
     )
@@ -69,11 +71,11 @@ export async function listarProdutos() {
     return dadosProdutos
 }
 
-export async function listarPessoa() {
+export async function listarPessoa(userEmail) {
     const dadosPessoa = []
     const response = await getDocs(
         query(
-            collection(db, "guilhermefran8@gmail.com"),
+            collection(db, userEmail),
             where("tipo", '==', 'pessoa')
         )
     )
@@ -83,11 +85,11 @@ export async function listarPessoa() {
     return dadosPessoa
 }
 
-export async function listarFornecedores() {
+export async function listarFornecedores(userEmail) {
     const dadosPessoa = []
     const response = await getDocs(
         query(
-            collection(db, "guilhermefran8@gmail.com"),
+            collection(db, userEmail),
             where("tipo", '==', 'pessoa')
         )
     )
@@ -97,17 +99,16 @@ export async function listarFornecedores() {
     return dadosPessoa
 }
 
-export async function removeProduto(key) {
-    await deleteDoc(doc(db, "guilhermefran8@gmail.com", key))
+export async function removeProduto(key, userEmail) {
+    await deleteDoc(doc(db, userEmail, key))
 }
 
-export async function removePessoa(key) {
-    await deleteDoc(doc(db, "guilhermefran8@gmail.com", key))
+export async function removePessoa(key, userEmail) {
+    await deleteDoc(doc(db, userEmail, key))
 }
 
-export async function modificaProduto(produto) {
-    console.log(produto)
-    await updateDoc(doc(db, "guilhermefran8@gmail.com", produto.key), 
+export async function modificaProduto(produto, userEmail) {
+    await updateDoc(doc(db, userEmail, produto.key), 
         {name: produto.name, 
 		marca: produto.marca, 
 		quantidade: produto.quantidade, 
@@ -115,8 +116,8 @@ export async function modificaProduto(produto) {
 		valorvenda: produto.valorvenda})
 }
 
-export async function modificaPessoa(pessoa) {
-    await updateDoc(doc(db, "guilhermefran8@gmail.com", pessoa.key), 
+export async function modificaPessoa(pessoa, userEmail) {
+    await updateDoc(doc(db, userEmail, pessoa.key), 
         {nome: pessoa.nome, 
 		cpf: pessoa.cpf, 
 		empresa: pessoa.empresa, 
@@ -124,10 +125,10 @@ export async function modificaPessoa(pessoa) {
 		telefone: pessoa.telefone})
 }
 
-export async function modificaUsuario(usuario) {
-    await updateDoc(doc(db, "guilhermefran8@gmail.com", usuario.key), 
+export async function modificaUsuario(usuario, userEmail) {
+    await updateDoc(doc(db, userEmail, usuario.key), 
         {name: usuario.name,
         email: usuario.email, 
 		plano: usuario.plano, 
-		tel: usuario.tel,})
+		tel: usuario.tel})
 }

@@ -26,27 +26,27 @@ export default function EditarFornecedor() {
     return (
         <Content>
             <div className="d-flex justify-content-between">
-                <h2>Novo fornecedor</h2>
+                <h2>Editar fornecedor</h2>
                 <Button link="/painel/fornecedores" title="Voltar" />
             </div>
             <form onSubmit={handleSubmit(onSubmit)} action="" className='my-4'>
                 <input type="hidden" {...register("key")} value={key} />
 
                 <label className='mt-4 form-label' htmlFor="nome">Representante</label>
-                <input type="text" name="nome" id="nome" className='form-control' defaultValue={dadosPessoa.nome} placeholder='Nome do fornecedor' {...register("nome")} />
+                <input type="text" name="nome" id="nome" className='form-control' defaultValue={pessoa.nome} placeholder='Nome do fornecedor' {...register("nome")} />
                 <input type="text" name="tipo" className='d-none' defaultValue="pessoa" {...register("tipo")} />
 
                 <label className='mt-4 form-label' htmlFor="cpf">CPF</label>
-                <input type="number" name="cpf" id="cpf" className='form-control' placeholder='CPF' {...register("cpf")} />
+                <input type="number" name="cpf" id="cpf" className='form-control' defaultValue={pessoa.cpf} placeholder='CPF' {...register("cpf")} />
 
                 <label className='mt-4 form-label' htmlFor="empresa">Empresa</label>
-                <input type="text" name="empresa" id="empresa" className='form-control' placeholder='Nome da empresa' {...register("empresa")} />
+                <input type="text" name="empresa" id="empresa" className='form-control' defaultValue={pessoa.empresa} placeholder='Nome da empresa' {...register("empresa")} />
 
                 <label className='mt-4 form-label' htmlFor="cnpj">CNPJ</label>
-                <input type="number" name="cnpj" id="cnpj" className='form-control' placeholder='CNPJ' {...register("cnpj")} />
+                <input type="number" name="cnpj" id="cnpj" className='form-control' defaultValue={pessoa.cnpj} placeholder='CNPJ' {...register("cnpj")} />
 
                 <label className='mt-4 form-label' htmlFor="telefone">Telefone</label>
-                <input type="tel" name="telefone" id="telefone" className='form-control' placeholder='Telefone' {...register("telefone")} />
+                <input type="tel" name="telefone" id="telefone" className='form-control' defaultValue={pessoa.telefone} placeholder='Telefone' {...register("telefone")} />
 
                 <button className='btn btn-success mt-4'>Salvar</button>
 
