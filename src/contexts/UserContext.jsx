@@ -30,7 +30,7 @@ export function UserContextProvider(props) {
 
     async function buscaDadosUsuario() {
         try {
-            const dados = await listarDadosUsuario()
+            const dados = await listarDadosUsuario(currentUser.userID)
             setDadosUser(dados)
         } catch (error) {
             throw Error(error.message)

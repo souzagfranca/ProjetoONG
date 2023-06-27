@@ -1,4 +1,6 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
+import UserContext from "./UserContext";
+
 import {
     insereCadastro, insereProduto,
     listarProdutos, listarPessoa,
@@ -6,6 +8,7 @@ import {
     modificaProduto, modificaPessoa,
     modificaUsuario, inserePessoa
 } from "../services/FirestoreService";
+
 
 const TaskContext = createContext({
     insereCadastro: () => { },
@@ -21,6 +24,7 @@ const TaskContext = createContext({
 })
 
 export function TaskContextProvider(props) {
+    const { userID } = useContext(UserContext)
     const [novoCadastro, setNovoCadastro] = useState([])
     const [novoProduto, setNovoProduto] = useState([])
     const [nPessoa, setPessoa] = useState([])
@@ -42,7 +46,7 @@ export function TaskContextProvider(props) {
 
     async function cadastrarProduto(produto) {
         try {
-            await insereProduto(produto)
+            await insereProduto(produto, userID)
             setNovoProduto([...novoProduto, produto])
         } catch (error) {
             throw Error(error.message)
@@ -51,7 +55,7 @@ export function TaskContextProvider(props) {
 
     async function cadastrarPessoa(pessoa) {
         try {
-            await inserePessoa(pessoa)
+            await inserePessoa(pessoa, userID)
             setPessoa([...nPessoa, pessoa])
         } catch (error) {
             throw Error(error.message)
@@ -60,7 +64,7 @@ export function TaskContextProvider(props) {
 
     async function buscaDadosPessoa() {
         try {
-            const dados = await listarPessoa()
+            const dados = await listarPessoa(userID)
             setDadosPessoa(dados)
         } catch (error) {
             throw Error(error.message)
@@ -69,7 +73,7 @@ export function TaskContextProvider(props) {
 
     async function buscaProdutos() {
         try {
-            const data = await listarProdutos()
+            const data = await listarProdutos(userID)
             setDadosProdutos(data)
         } catch (error) {
             throw Error(error.message)
@@ -78,7 +82,7 @@ export function TaskContextProvider(props) {
 
     async function remover(key) {
         try {
-            await removeProduto(key)
+            await removeProduto(key, userID)
             setDadosProdutos((valorAntigo) => valorAntigo.filter((item) => item.key != key))
         } catch (error) {
             throw Error(error.message)
@@ -87,7 +91,7 @@ export function TaskContextProvider(props) {
 
     async function deletaPessoa(key) {
         try {
-            await removePessoa(key)
+            await removePessoa(key, userID)
             setDadosPessoa((valorAntigo) => valorAntigo.filter((item) => item.key != key))
         } catch (error) {
             throw Error(error.message)
@@ -96,7 +100,7 @@ export function TaskContextProvider(props) {
 
     async function modificar(produto) {
         try {
-            await modificaProduto(produto)
+            await modificaProduto(produto, userID)
         } catch (error) {
             throw Error(error.message)
         }
@@ -104,15 +108,16 @@ export function TaskContextProvider(props) {
 
     async function editarPessoa(pessoa) {
         try {
-            await modificaPessoa(pessoa)
+            await modificaPessoa(pessoa, userID)
         } catch (error) {
             throw Error(error.message)
         }
     }
 
     async function editarUsuario(usuario) {
+        console.log(usuario)
         try {
-            await modificaUsuario(usuario)
+            await modificaUsuario(usuario, userID)
         } catch (error) {
             throw Error(error.message)
         }
