@@ -29,20 +29,20 @@ export default function NovoProduto() {
             <form onSubmit={handleSubmit(onSubmit)} action="" className='my-4'>
 
                 <label className='mt-4 form-label' htmlFor="nome">Descrição</label>
-                <input type="text" name="name" id="name" className='form-control' placeholder='Nome do produto' {...register("name")} />
+                <input type="text" name="name" id="name" className='form-control' placeholder='Descrição' {...register("name")} />
                 <input type="text" name="tipo" className='d-none' defaultValue="produto" {...register("tipo")}/>
                 
                 <label className='mt-4 form-label' htmlFor="marca">Marca</label>
-                <input type="text" name="marca" id="marca" className='form-control' placeholder='Marca do produto' {...register("marca")}/>
+                <input type="text" name="marca" id="marca" className='form-control' placeholder='Marca' {...register("marca")}/>
 
                 <label className='mt-4 form-label' htmlFor="quantidade">Quantidade</label>
-                <input type="number" name="quantidade" id="codigo" className='form-control' placeholder='Codigo do produto' {...register("quantidade")}/>
+                <input type="number" name="quantidade" id="codigo" className='form-control' placeholder='Quantidade' {...register("quantidade")}/>
 
                 <label className='mt-4 form-label' htmlFor="valorcusto">Valor de custo</label>
-                <input type="number" name="valorcusto" id="valorcusto" className='form-control' placeholder='Codigo do produto' {...register("valorcusto")}/>
+                <input type="number" name="valorcusto" id="valorcusto" className='form-control' placeholder='Valor de custo' {...register("valorcusto")}/>
 
                 <label className='mt-4 form-label' htmlFor="valorvenda">Valor de venda</label>
-                <input type="number" name="valorvenda" id="valorvenda" className='form-control' placeholder='Codigo do produto' {...register("valorvenda")}/>
+                <input type="number" name="valorvenda" id="valorvenda" className='form-control' placeholder='Valor de venda' {...register("valorvenda")}/>
 
                 <button className='btn btn-success mt-4'>Salvar</button>
 
