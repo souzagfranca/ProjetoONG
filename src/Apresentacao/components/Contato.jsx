@@ -1,6 +1,5 @@
 import React from 'react'
 import NavBar from './NavBar'
-import Banner from './Banner'
 import Footer from './Footer'
 import mapaContato from '../assets/img/mapa_contato.png'
 

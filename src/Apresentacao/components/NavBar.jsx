@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import logo from '/img/logo.png'
 import React from 'react';
@@ -19,11 +18,10 @@ function App(props) {
       {/* NAVBAR */}
       <section>
         <nav className="bg-cinza-escuro navbar navbar-expand-lg bg-body-tertiary">
-          <div className="container pt-3 pb-3">
+          <div className="container">
             <Link to="/">
               <img src={logo} className="img-responsive" alt="" />
             </Link>
-
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
               aria-label="Toggle navigation">
@@ -34,7 +32,7 @@ function App(props) {
 
                 <Link to="/sobre-nos">
                   <li className="nav-item px-4">
-                    <small className="nav-link active" aria-current="page">SOBRE NÓS</small>
+                    <small className="nav-link" aria-current="page">SOBRE NÓS</small>
                   </li>
                 </Link>
 
@@ -70,7 +68,7 @@ function App(props) {
                   <li className="nav-item px-3">
                     <Link to="/cadastro/mensal">
                       <small className="btn verde-escuro text-white mt-sm-0 mt-3 pe-4 ps-4 w-100"
-                        >CADASTRE-SE</small>
+                      >CADASTRE-SE</small>
                     </Link>
                   </li>
                 </>

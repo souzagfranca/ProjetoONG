@@ -3,8 +3,6 @@ import React, { useRef } from 'react';
 import NavBar from './components/NavBar'
 import Banner from './components/Banner'
 import Apresentacao from './components/Apresentacao'
-import Apresentacao2 from './components/Apresentacao2'
-import Planos from './components/Planos'
 import Footer from './components/Footer'
 
 

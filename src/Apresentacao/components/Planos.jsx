@@ -1,7 +1,6 @@
 import React from 'react'
 import Precos from './Precos'
 import NavBar from '../components/NavBar'
-import Banner from '../components/Banner'
 import Footer from './Footer'
 
 

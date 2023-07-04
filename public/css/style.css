@@ -1,17 +1,17 @@
 .text-verde-claro {
-    color: #44A1A0 !important;
+    color: #444da1 !important;
 }
 
 .text-verde-claro1 {
-    color: #247B7B !important;
+    color: #7b2457 !important;
 }
 
 .text-verde-escuro {
-    color: #0D5C63 !important;
+    color: #10630d !important;
 }
 
 .text-verde-escuro1 {
-    color: #013539 !important;
+    color: #390101 !important;
 }
 
 .text-cinza-claro {
@@ -20,6 +20,14 @@
 
 .text-red {
     color: red;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: #ce5504;
 }
 
 nav ul li a {
@@ -32,17 +40,24 @@ nav ul li a.active {
 }
 
 .verde-escuro {
-    background-color: #0D5C63;
+    background-color: #964f26;
     border: 0;
 }
 
 .verde-escuro:hover {
-    background-color: #013539;
+    background-color: #ce5504;
 }
 
 .verde-claro {
-    color: #78CDD7 !important;
-    border: 1px solid #78CDD7;
+    color: white !important;
+    border: 1px solid #ce5504;
+}
+
+.btn-outline-info {
+    --bs-btn-hover-bg: #ce5504;
+    --bs-btn-hover-border-color: #ffffff;
+    --bs-btn-active-bg: #ce5504;
+    --bs-btn-active-border-color: #ffffff;
 }
 
 .verde-claro:hover {
@@ -55,7 +70,7 @@ h1 {
 }
 
 .bg-cinza-escuro {
-    background-color: #E0E0E0 !important;
+    background-color: #201e1f !important;
     
 }
 
@@ -68,11 +83,11 @@ h1 {
 }
 
 .bg-verde-escuro {
-    background-color: #0D5C63;
+    background-color: #28630d;
 }
 
 .bg-verde-escuro1 {
-    background-color: #013539;
+    background-color: #39012b;
 }
 
 .card-esquerda {
@@ -101,7 +116,7 @@ a {
     right: 0;
     width: 3em;
     height: 3em;
-    border: 7px solid #0D5C63;
+    border: 7px solid #45630d;
     border-bottom: none;
     border-left: none;
     z-index: 10;
