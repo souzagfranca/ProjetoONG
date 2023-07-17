@@ -38,7 +38,7 @@ export default function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Apresentacao />} />
+                <Route path="/" element={<Login />} />
                 <Route path="/sobre-nos" element={<Apresentacao />} />
                 <Route path="/planos" element={<Planos />} />
                 <Route path="/contato" element={<Contato />} />

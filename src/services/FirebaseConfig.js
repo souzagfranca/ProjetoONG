@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app"
 
 const FirebaseConfig = {
-    apiKey: "AIzaSyCHVDa4fSZw0jeijzNwweOsYE2WKM4ORic",
-    authDomain: "blackbox-d174e.firebaseapp.com",
-    projectId: "blackbox-d174e",
-    storageBucket: "blackbox-d174e.appspot.com",
-    messagingSenderId: "133994616848",
-    appId: "1:133994616848:web:ca0092e5d0fd4d4106d295"
+    apiKey: "AIzaSyArQUz3BMBS8VBMU5VRNPh6qf6l39NYADo",
+    authDomain: "ongob-63193.firebaseapp.com",
+    projectId: "ongob-63193",
+    storageBucket: "ongob-63193.appspot.com",
+    messagingSenderId: "274688661411",
+    appId: "1:274688661411:web:a615b2ae14f4aebb53ec16"
 }
 
 const app = initializeApp(FirebaseConfig)

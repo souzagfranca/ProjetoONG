@@ -23,28 +23,28 @@ export default function NovoProduto() {
     return (
         <Content>
             <div className="d-flex justify-content-between">
-                <h2>Novo produto</h2>
+                <h2>Nova ação</h2>
                 <Button link="/painel/estoque" title="Voltar" />
             </div>
             <form onSubmit={handleSubmit(onSubmit)} action="" className='my-4'>
 
-                <label className='mt-4 form-label' htmlFor="nome">Descrição</label>
-                <input type="text" name="name" id="name" className='form-control' placeholder='Descrição' {...register("name")} />
-                <input type="text" name="tipo" className='d-none' defaultValue="produto" {...register("tipo")}/>
+                <label className='mt-4 form-label' htmlFor="nome">Nome da ação</label>
+                <input type="text" name="nome" id="nome" className='form-control' placeholder='Nome da ação' {...register("nome")} />
+                <input type="text" name="tipo" className='d-none' defaultValue="acao" {...register("tipo")}/>
                 
-                <label className='mt-4 form-label' htmlFor="marca">Marca</label>
-                <input type="text" name="marca" id="marca" className='form-control' placeholder='Marca' {...register("marca")}/>
+                <label className='mt-4 form-label' htmlFor="dt_acao">Data</label>
+                <input type="date" name="dt_acao" id="dt_acao" className='form-control' placeholder='Data' {...register("dt_acao")}/>
 
-                <label className='mt-4 form-label' htmlFor="quantidade">Quantidade</label>
-                <input type="number" name="quantidade" id="codigo" className='form-control' placeholder='Quantidade' {...register("quantidade")}/>
+                <label className='mt-4 form-label' htmlFor="local">Local</label>
+                <input type="text" name="local" id="local" className='form-control' placeholder='Local' {...register("local")}/>
 
-                <label className='mt-4 form-label' htmlFor="valorcusto">Valor de custo</label>
-                <input type="number" name="valorcusto" id="valorcusto" className='form-control' placeholder='Valor de custo' {...register("valorcusto")}/>
+                <label className='mt-4 form-label' htmlFor="materialdoado">Material Doado</label>
+                <input type="text" name="materialdoado" id="materialdoado" className='form-control' placeholder='Material Doado' {...register("materialdoado")}/>
 
-                <label className='mt-4 form-label' htmlFor="valorvenda">Valor de venda</label>
-                <input type="number" name="valorvenda" id="valorvenda" className='form-control' placeholder='Valor de venda' {...register("valorvenda")}/>
+                <label className='mt-4 form-label' htmlFor="relato">Digite um breve resumo do que foi a ação de hoje.</label>
+                <input type="text" name="relato" id="relato" className='form-control' placeholder='Escreva aqui o que achou' {...register("relato")}/>
 
-                <button className='btn btn-success mt-4'>Salvar</button>
+                <button className='btn btn-success mt-4'>Enviar</button>
 
             </form>
         </Content >

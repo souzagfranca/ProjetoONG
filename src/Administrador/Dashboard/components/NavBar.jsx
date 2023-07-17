@@ -68,19 +68,13 @@ function Sidebar() {
           <Link to="/painel/perfil" onClick={() => handleItemClick('perfil')}>
             <li className={`pt-2 pb-2 my-2 text-center ${activeItem === 'perfil' ? 'active' : ''}`}>
               <i className="bi bi-person fw-bold me-2"></i>
-              PERFIL
+              MEU PERFIL
             </li>
           </Link>
           <Link to="/painel/estoque" onClick={() => handleItemClick('estoque')}>
             <li className={`pt-2 pb-2 my-2 text-center ${activeItem === 'estoque' ? 'active' : ''}`}>
               <i className="bi bi-box fw-bold me-2"></i>
-              ESTOQUE
-            </li>
-          </Link>
-          <Link to="/painel/fornecedores" onClick={() => handleItemClick('fornecedores')}>
-            <li className={`pt-2 pb-2 my-2 text-center ${activeItem === 'fornecedores' ? 'active' : ''}`}>
-              <i className="bi bi-calendar-event fw-bold me-2"></i>
-              FORNECEDORES
+              MINHAS AÇÕES
             </li>
           </Link>
           <Link to="/logout">
